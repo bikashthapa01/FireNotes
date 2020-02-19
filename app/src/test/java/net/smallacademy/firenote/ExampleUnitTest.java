@@ -1,4 +1,4 @@
-package net.smallacademy.firenotes;
+package net.smallacademy.firenote;
 
 import org.junit.Test;
 
