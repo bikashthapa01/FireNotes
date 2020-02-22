@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.TextView;
 
 public class NoteDetails extends AppCompatActivity {
+    Intent data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +26,7 @@ public class NoteDetails extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Intent data = getIntent();
+        data = getIntent();
 
 
         TextView content = findViewById(R.id.noteDetailsContent);
@@ -42,6 +43,11 @@ public class NoteDetails extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                Intent i = new Intent(view.getContext(),EditNote.class);
+                i.putExtra("title",data.getStringExtra("title"));
+                i.putExtra("content",data.getStringExtra("content"));
+                i.putExtra("noteId",data.getStringExtra("noteId"));
+                startActivity(i);
             }
         });
     }
