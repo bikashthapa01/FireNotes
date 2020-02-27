@@ -1,10 +1,9 @@
-package net.smallacademy.firenote;
+package net.smallacademy.firenote.note;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +13,8 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+
+import net.smallacademy.firenote.R;
 
 public class NoteDetails extends AppCompatActivity {
     Intent data;

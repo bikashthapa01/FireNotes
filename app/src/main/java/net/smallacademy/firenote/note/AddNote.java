@@ -1,4 +1,4 @@
-package net.smallacademy.firenote;
+package net.smallacademy.firenote.note;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -18,6 +18,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import net.smallacademy.firenote.R;
 
 import java.util.HashMap;
 import java.util.Map;
