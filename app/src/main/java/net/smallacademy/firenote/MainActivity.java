@@ -38,6 +38,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
+import net.smallacademy.firenote.auth.Login;
 import net.smallacademy.firenote.auth.Register;
 import net.smallacademy.firenote.model.Note;
 import net.smallacademy.firenote.note.AddNote;
@@ -70,7 +71,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         user = fAuth.getCurrentUser();
 
 
-        Query query = fStore.collection("notes").orderBy("title", Query.Direction.DESCENDING);
+        Query query = fStore.collection("notes").document(user.getUid()).collection("myNotes").orderBy("title", Query.Direction.DESCENDING);
+        // query notes > uuid > mynotes
 
         FirestoreRecyclerOptions<Note> allNotes = new FirestoreRecyclerOptions.Builder<Note>()
                 .setQuery(query,Note.class)
@@ -186,6 +188,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch(item.getItemId()){
             case R.id.addNote:
                 startActivity(new Intent(this,AddNote.class));
+                break;
+
+            case R.id.sync:
+                if(user.isAnonymous()){
+                    startActivity(new Intent(this, Login.class));
+                }else {
+                    Toast.makeText(this, "Your Are Connected.", Toast.LENGTH_SHORT).show();
+                }
                 break;
 
             case R.id.logout:
