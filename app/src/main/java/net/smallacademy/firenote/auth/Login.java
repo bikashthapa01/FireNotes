@@ -116,8 +116,6 @@ public class Login extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(),Register.class));
             }
         });
-
-
     }
 
     private void showWarning() {
